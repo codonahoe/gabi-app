@@ -67,8 +67,24 @@ export class MoviesService {
               this.movies.push(movie);
             }
         }
+        this.movies.forEach(m =>{
+          m.movieName = m.movieName.toLowerCase();
+          m.director = m.director.toLowerCase();
+          m.genre = m.genre.toLowerCase();
+        })
         this.movies = this.movies
-          .filter(m => m.movieName.includes(typedResult) || m.director.includes(typedResult) || m.genre.includes(typedResult));
+          .filter(m => m.movieName.includes(typedResult.toLowerCase()) || m.director.includes(typedResult.toLowerCase()) || m.genre.includes(typedResult.toLowerCase()));
+        
+          this.movies.forEach(m =>{
+            m.movieName = m.movieName.split(' ').map((m) => m.charAt(0).toUpperCase() + m.slice(1)).join(' ');
+            m.director = m.director.split(' ').map((m) => m.charAt(0).toUpperCase() + m.slice(1)).join(' ');
+            m.genre = m.genre.split(' ').map((m) => m.charAt(0).toUpperCase() + m.slice(1)).join(' ');
+          })
+          this.movies.forEach(m =>{
+            m.movieName = m.movieName.split('/').map((m) => m.charAt(0).toUpperCase() + m.slice(1)).join('/');
+            m.director = m.director.split('/').map((m) => m.charAt(0).toUpperCase() + m.slice(1)).join('/');
+            m.genre = m.genre.split('/').map((m) => m.charAt(0).toUpperCase() + m.slice(1)).join('/');
+          })
       }
     })
   }
