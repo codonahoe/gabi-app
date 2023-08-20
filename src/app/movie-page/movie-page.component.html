@@ -1,4 +1,9 @@
-<form>   
+<form> 
+    <ul class="flex">
+        <li class="mr-3">
+          <a class="hover:bg-blue-800 inline-block border border-blue-500 rounded py-1 px-3 bg-blue-500 text-white mb-2" (click)="routeToHome('')">Home</a>
+        </li>
+      </ul>
     <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
     <div class="relative">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -10,3 +15,28 @@
         <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
     </div>
 </form>
+<body>
+    <div class="grid">
+        <div class="row-span-2">
+            <i>Here are some movie suggestions!</i>
+            <div class="relative overflow-x-auto">
+                <table class="w-full text-md text-left">
+                    <thead>
+                    <tr>
+                        <th>Movie Name</th>
+                        <th>Director</th>
+                        <th>Year</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let movie of movieService.movies">
+                            <td>{{ movie.movieName }}</td>
+                            <td>{{ movie.director }}</td>
+                            <td>{{ movie.date }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
