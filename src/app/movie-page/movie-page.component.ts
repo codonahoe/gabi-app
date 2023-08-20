@@ -33,19 +33,37 @@ export class MoviePageComponent implements OnInit, AfterViewInit {
     this.movieService.getMovieData(movieName)
       .subscribe(d => {
         if(!this.movieService.selectedMovie) return;
-        const movie:Movie = {
-          movieName:d.Title,
-          director:d.Director,
-          date:d.Year,
-          movieNumber:this.movieService.selectedMovie?.movieNumber,
-          genre:d.Genre,
-          mainCast:d.Actors,
-          dvdType:this.movieService.selectedMovie.dvdType,
-          rating:d.Ratings[1].Value,
-          poster:d.Poster,
-          plot:d.Plot,
+        if(!d.Ratings[1]){
+          const movie:Movie = {
+            movieName:d.Title,
+            director:d.Director,
+            date:d.Year,
+            movieNumber:this.movieService.selectedMovie?.movieNumber,
+            genre:d.Genre,
+            mainCast:d.Actors,
+            dvdType:this.movieService.selectedMovie.dvdType,
+            rating:d.Ratings[0].Value,
+            poster:d.Poster,
+            plot:d.Plot,
+          }
+          this.movieService.emitMovie.next(movie);
         }
-        this.movieService.emitMovie.next(movie);
+        else{
+          const movie:Movie = {
+            movieName:d.Title,
+            director:d.Director,
+            date:d.Year,
+            movieNumber:this.movieService.selectedMovie?.movieNumber,
+            genre:d.Genre,
+            mainCast:d.Actors,
+            dvdType:this.movieService.selectedMovie.dvdType,
+            rating:d.Ratings[1].Value,
+            poster:d.Poster,
+            plot:d.Plot,
+          }
+          this.movieService.emitMovie.next(movie);
+        } 
+
         this.routeToMovie();
       })
   }

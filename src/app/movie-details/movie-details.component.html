@@ -1,35 +1,44 @@
-<nav class="bg-white border-blue-200 dark:bg-blue-900 mb-2">
+<nav class="h-14 bg-gradient-to-r from-red-800 to-slate-900 mb-2">
     <div class="max-w-screen-xl flex flex-wrap items-center p-4">
         <a class="navbar-brand cursor-pointer mr-2 text-gray-400">Gabriela's Movie Website!!</a>
         <a class="navbar-brand cursor-pointer ml-2 mr-2 text-gray-400" (click)="routeToHome('')">Home</a>
         <a class="navbar-brand cursor-pointer ml-2 mr-2 text-gray-400" (click)="routeToMovies('movies')">Movies</a>
     </div>
 </nav>
-<i class="text-center flex text-4xl justify-center">{{ movie?.movieName }}</i>
-<div class="grid">
-    <div class="grid grid-cols-3 gap-4">
-        <div class="row-span-2">
-            <div>
-                Genre: {{ movie?.genre }}
+<body>
+    <i class="text-center flex text-4xl justify-center">{{ movie?.movieName }}</i>
+    <div class="grid">
+        <div class="grid grid-cols-3 gap-4">
+            <div class="row-span-2">
+                <div class="ml-2 mb-2 font-mono">
+                    Genre: {{ movie?.genre }}
+                </div>
+                <div class="ml-2 mb-2 font-mono">
+                    Director: {{movie?.director}}
+                </div>
+                <div class="ml-2 mb-2 font-mono">
+                    Cast: {{ movie?.mainCast }}
+                </div>
+                <div class="ml-2 mb-2 font-mono">
+                    Rotten Tomatoes Rating: {{ movie?.rating }}
+                </div>
             </div>
-            <div>
-                Director: {{movie?.director}}
+            <div class="row-span-2">
+                <img class="center" src='{{movie?.poster}}'>
             </div>
-            <div>
-                Cast: {{ movie?.mainCast }}
+            <div class="row-span-2">
+                <div class="mr-2 mb-2 font-mono">
+                    Plot: {{ movie?.plot }}
+                </div>
             </div>
-            <div>
-                Rotten Tomatoes Rating: {{ movie?.rating }}
-            </div>
-            <div>
-                Plot: {{ movie?.plot }}
-            </div>
-        </div>
-        <div class="row-span-2">
-            <img class="center" src='{{movie?.poster}}'>
-        </div>
-        <div class="row-span-2">
-            
         </div>
     </div>
-</div>
+</body>
+ <footer>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 float-left ml-2 rounded-full" (click)="previousMovie()">
+        Previous Movie
+    </button>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 float-right mr-2 rounded-full" (click)="nextMovie()">
+        Next Movie
+    </button>
+</footer>
