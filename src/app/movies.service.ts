@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Movie } from './interfaces/movie';
 import { HttpClient } from "@angular/common/http";
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,9 @@ import { HttpClient } from "@angular/common/http";
 export class MoviesService {
   
   public movies:Movie[] = [];
+  public selectedMovie:Movie | null = null;
+  public emitMovie = new ReplaySubject<Movie>();
+
   constructor(public http:HttpClient) {
     this.setMovies('');
   }
@@ -66,6 +70,11 @@ export class MoviesService {
   }
 
   getMovieData(movieName:string){
-    return this.http.get(`http://www.omdbapi.com/?apikey=3b16d23d&t=${movieName}`);
+    for(let i = 0; i < this.movies.length; i++){
+      if(movieName === this.movies[i].movieName){
+        this.selectedMovie = this.movies[i];
+      }
+    }
+    return this.http.get<any>(`http://www.omdbapi.com/?apikey=3b16d23d&t=${movieName}`);
   }
 }

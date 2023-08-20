@@ -18,5 +18,5 @@ export class HomePageComponent implements OnInit{
     routeToMovies(path:string){
       this.movieService.setMovies('');
       this.router.navigate([path]);
-  }
+    }
 }
