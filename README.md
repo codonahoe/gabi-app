@@ -1,4 +1,8 @@
 # GabiMovieApp
+--------------------------
+So far this application pulls from a CSV file, I want to polish the front end and then eventually migrate the csv data into a MSSQL instance.
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
 
