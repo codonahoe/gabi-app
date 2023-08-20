@@ -8,4 +8,6 @@ export interface Movie
     mainCast:string,
     dvdType:string,
     rating:string | null,
+    poster:string | null,
+    plot:string | null,
 }

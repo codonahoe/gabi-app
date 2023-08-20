@@ -31,10 +31,10 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let movie of movieService.movies" (click)="getMovieData(movie.movieName)">
-                            <td class="border px-8 py-4">{{ movie.movieName }}</td>
-                            <td class="border px-8 py-4">{{ movie.director }}</td>
-                            <td class="border px-8 py-4">{{ movie.genre }}</td>
-                            <td class="border px-8 py-4">{{ movie.date }}</td>
+                            <td class="border px-8 py-4 cursor-pointer">{{ movie.movieName }}</td>
+                            <td class="border px-8 py-4 cursor-pointer">{{ movie.director }}</td>
+                            <td class="border px-8 py-4 cursor-pointer">{{ movie.genre }}</td>
+                            <td class="border px-8 py-4 cursor-pointer">{{ movie.date }}</td>
                         </tr>
                     </tbody>
                 </table>

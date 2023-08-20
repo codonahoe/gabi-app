@@ -35,14 +35,16 @@ export class MoviesService {
 
             row[2] = firstLetterCap + word;
             let movie:Movie = {
-              movieNumber: row[0],
-              movieName: row[2] + row[1],
-              date: row[3],
-              genre: row[4],
-              director: row[5],
-              mainCast: row[6],
-              dvdType: row[7],
-              rating: null
+              movieNumber:row[0],
+              movieName:row[2] + row[1],
+              date:row[3],
+              genre:row[4],
+              director:row[5],
+              mainCast:row[6],
+              dvdType:row[7],
+              rating:null,
+              poster:null,
+              plot:null,
             }
             if(movie.movieName !== 'Title'){
               this.movies.push(movie);
@@ -50,14 +52,16 @@ export class MoviesService {
           }
           else{
             let movie:Movie = {
-              movieNumber: row[0],
-              movieName: row[1],
-              date: row[2],
-              genre: row[3],
-              director: row[4],
-              mainCast: row[5],
-              dvdType: row[6],
-              rating: null
+              movieNumber:row[0],
+              movieName:row[1],
+              date:row[2],
+              genre:row[3],
+              director:row[4],
+              mainCast:row[5],
+              dvdType:row[6],
+              rating:null,
+              poster:null,
+              plot:null,
             }
             if(movie.movieName !== 'Title'){
               this.movies.push(movie);

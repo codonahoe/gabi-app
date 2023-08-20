@@ -9,7 +9,7 @@ import { MoviesService } from '../movies.service';
   styleUrls: ['./movie-details.component.css']
 })
 
-export class MovieDetailsComponent implements OnInit {
+export class MovieDetailsComponent {
 
   public movie:Movie | null = null;
 
@@ -19,18 +19,7 @@ export class MovieDetailsComponent implements OnInit {
                   this.movie = m;
                 })
               }
-  
-  ngOnInit(){
-    this.movieService.emitMovie.subscribe((m) => {
-      this.movie = m;
-      console.log(this.movie)
-      })
-  }
-  ngAfterViewInit(){
-    this.movieService.emitMovie.subscribe((m) => {
-      this.movie = m;
-      })
-  }
+
 
   routeToHome(path:string){
     this.movieService.setMovies('');

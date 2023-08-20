@@ -5,6 +5,31 @@
         <a class="navbar-brand cursor-pointer ml-2 mr-2 text-gray-400" (click)="routeToMovies('movies')">Movies</a>
     </div>
 </nav>
-<div>
-    {{ movie?.movieName }}
+<i class="text-center flex text-4xl justify-center">{{ movie?.movieName }}</i>
+<div class="grid">
+    <div class="grid grid-cols-3 gap-4">
+        <div class="row-span-2">
+            <div>
+                Genre: {{ movie?.genre }}
+            </div>
+            <div>
+                Director: {{movie?.director}}
+            </div>
+            <div>
+                Cast: {{ movie?.mainCast }}
+            </div>
+            <div>
+                Rotten Tomatoes Rating: {{ movie?.rating }}
+            </div>
+            <div>
+                Plot: {{ movie?.plot }}
+            </div>
+        </div>
+        <div class="row-span-2">
+            <img class="center" src='{{movie?.poster}}'>
+        </div>
+        <div class="row-span-2">
+            
+        </div>
+    </div>
 </div>

@@ -41,7 +41,9 @@ export class MoviePageComponent implements OnInit, AfterViewInit {
           genre:d.Genre,
           mainCast:d.Actors,
           dvdType:this.movieService.selectedMovie.dvdType,
-          rating:d.Ratings[1]
+          rating:d.Ratings[1].Value,
+          poster:d.Poster,
+          plot:d.Plot,
         }
         this.movieService.emitMovie.next(movie);
         this.routeToMovie();
