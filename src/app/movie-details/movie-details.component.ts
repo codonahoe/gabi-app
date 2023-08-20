@@ -1,8 +1,8 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { Movie } from '../interfaces/movie';
-import { Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MoviesService } from '../movies.service';
+
 @Component({
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
