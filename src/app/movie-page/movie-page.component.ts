@@ -6,8 +6,9 @@ import { Router } from '@angular/router';
   templateUrl: './movie-page.component.html',
   styleUrls: ['./movie-page.component.css']
 })
-export class MoviePageComponent implements OnInit, AfterViewInit{
+export class MoviePageComponent implements OnInit, AfterViewInit {
 
+  public searchedMovie:string = '';
   constructor(public movieService:MoviesService,
               private router:Router){}
 
@@ -16,8 +17,11 @@ export class MoviePageComponent implements OnInit, AfterViewInit{
   }
   ngAfterViewInit(){}
 
+  searchMovies(typedResult:string){
+    this.movieService.setMovies(typedResult);
+  }
   routeToHome(path:string){
-    this.movieService.setMovies();
+    this.movieService.setMovies('');
     this.router.navigate([path]);
 }
 }

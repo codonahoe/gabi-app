@@ -11,16 +11,17 @@ export class MoviesService {
   
   public movies:Movie[] = [];
   constructor(public http:HttpClient) {
-    this.setMovies();
+    this.setMovies('');
   }
 
-  setMovies(){
+  setMovies(typedResult:string){
     this.http.get('assets/FIlm Library.GV.csv', { responseType: 'text' })
       .subscribe(csvData => {
         this.movies = [];
         let csvToRowArray = csvData.split("\n");
         for(let i = 1; i < csvToRowArray.length - 1; i++){
           let row = csvToRowArray[i].split(",");
+          if(row[1] === '') continue;
           if(row[2] === ' the"' || row[2] === ' the : Extended"'){
 
             row[1] = row[1].replace(/"/g,"");
@@ -46,22 +47,23 @@ export class MoviesService {
             }
           }
           else{
-          let movie:Movie = {
-            movieNumber: row[0],
-            movieName: row[1],
-            date: row[2],
-            genre: row[3],
-            director: row[4],
-            mainCast: row[5],
-            dvdType: row[6],
-            rating: null
-          }
-          if(movie.movieName !== 'Title'){
-            this.movies.push(movie);
-          }
+            let movie:Movie = {
+              movieNumber: row[0],
+              movieName: row[1],
+              date: row[2],
+              genre: row[3],
+              director: row[4],
+              mainCast: row[5],
+              dvdType: row[6],
+              rating: null
+            }
+            if(movie.movieName !== 'Title'){
+              this.movies.push(movie);
+            }
         }
-        }
-        console.log(this.movies)
-      })
+        this.movies = this.movies
+          .filter(m => m.movieName.includes(typedResult) || m.director.includes(typedResult) || m.genre.includes(typedResult));
+      }
+    })
   }
 }

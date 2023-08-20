@@ -16,7 +16,7 @@ export class HomePageComponent implements OnInit{
     ngOnInit(): void {
     }
     routeToMovies(path:string){
-      this.movieService.setMovies();
+      this.movieService.setMovies('');
       this.router.navigate([path]);
   }
 }

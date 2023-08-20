@@ -11,28 +11,29 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
             </svg>
         </div>
-        <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search a Movie Please!!" required>
-        <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+        <input [ngModelOptions]="{standalone: true}" type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search a Movie, Genre, or Director!!" [(ngModel)]="searchedMovie" (ngModelChange)="searchMovies(searchedMovie)" required>
     </div>
 </form>
 <body class="mt-2">
     <div class="grid">
         <div class="row-span-2">
-            <i>Here are some movie suggestions!</i>
+            <h1 class="border text-left px-8 py-4">Here's a list of movies for you that Gabriela owns!</h1>
             <div class="relative overflow-x-auto">
                 <table class="w-full text-md text-left">
                     <thead>
                     <tr>
-                        <th>Movie Name</th>
-                        <th>Director</th>
-                        <th>Year</th>
+                        <th class="bg-blue-100 border text-left px-8 py-4">Movie Name</th>
+                        <th class="bg-blue-100 border text-left px-8 py-4">Director</th>
+                        <th class="bg-blue-100 border text-left px-8 py-4">Genre</th>
+                        <th class="bg-blue-100 border text-left px-8 py-4">Year</th>
                     </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let movie of movieService.movies">
-                            <td>{{ movie.movieName }}</td>
-                            <td>{{ movie.director }}</td>
-                            <td>{{ movie.date }}</td>
+                            <td class="border px-8 py-4">{{ movie.movieName }}</td>
+                            <td class="border px-8 py-4">{{ movie.director }}</td>
+                            <td class="border px-8 py-4">{{ movie.genre }}</td>
+                            <td class="border px-8 py-4">{{ movie.date }}</td>
                         </tr>
                     </tbody>
                 </table>
