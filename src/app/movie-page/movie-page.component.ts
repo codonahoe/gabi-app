@@ -23,5 +23,10 @@ export class MoviePageComponent implements OnInit, AfterViewInit {
   routeToHome(path:string){
     this.movieService.setMovies('');
     this.router.navigate([path]);
-}
+  }
+  
+  getMovieData(movieName:string){
+    this.movieService.getMovieData(movieName)
+      .subscribe(d => console.log(d))
+  }
 }

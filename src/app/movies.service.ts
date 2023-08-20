@@ -66,4 +66,8 @@ export class MoviesService {
       }
     })
   }
+
+  getMovieData(movieName:string){
+    return this.http.get(`http://www.omdbapi.com/?apikey=3b16d23d&t=${movieName}`);
+  }
 }
