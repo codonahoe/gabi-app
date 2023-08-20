@@ -1,40 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <style>
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-  </style>
-</head>
-<body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Gabriela's Movie Website!!</a>
+<nav class="bg-white border-blue-200 dark:bg-blue-900 mb-2">
+    <div class="max-w-screen-xl flex flex-wrap items-center p-4">
+        <a class="navbar-brand cursor-pointer mr-2 text-gray-400">Gabriela's Movie Website!!</a>
+        <a class="navbar-brand cursor-pointer ml-2 text-gray-400" (click)="routeToMovies('movies')">Movies</a>
     </div>
-  </div>
 </nav>
 <body>
-  <div class="container-fluid div-1">
+
     <div class='flex flex-col justify-center'>
-      <h1 class='text-center'>Welcome to Gabriela's movies! </h1>
-      <h3 class='text-center'>The most in depth movie data catalog around.</h3>
-      <li><a class="cursor-pointer" (click)="routeToMovies('movies')">Movies</a></li>
+      <h1 class='text-center text-2xl'>Welcome to Gabriela's movies! </h1>
+      <h3 class='text-center text-2xs'>The most in depth movie data catalog around.</h3>
     </div>
-  </div>
 </body>

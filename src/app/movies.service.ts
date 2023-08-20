@@ -22,7 +22,7 @@ export class MoviesService {
         for(let i = 1; i < csvToRowArray.length - 1; i++){
           let row = csvToRowArray[i].split(",");
           if(row[1] === '') continue;
-          if(row[2] === ' the"' || row[2] === ' the : Extended"'){
+          if(row[2] === ' the"' || row[2] === ' the : Extended"' || row[2] === ' the "'){
 
             row[1] = row[1].replace(/"/g,"");
             row[2] = row[2].replace(/"/g," ");

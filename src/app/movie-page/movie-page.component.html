@@ -1,10 +1,12 @@
-<form> 
-    <ul class="flex">
-        <li class="mr-3">
-          <a class="hover:bg-blue-800 inline-block border border-blue-500 rounded py-1 px-3 bg-blue-500 text-white mb-2 mt-2 ml-2" (click)="routeToHome('')">Home</a>
-        </li>
-      </ul>
-    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+
+<form>
+    <nav class="bg-white border-blue-200 dark:bg-blue-900 mb-2">
+        <div class="max-w-screen-xl flex flex-wrap items-center p-4">
+            <a class="navbar-brand cursor-pointer mr-2 text-gray-400">Gabriela's Movie Website!!</a>
+            <a class="navbar-brand cursor-pointer ml-2 text-gray-400" (click)="routeToHome('')">Home</a>
+        </div>
+    </nav>
+
     <div class="relative">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -17,7 +19,7 @@
 <body class="mt-2">
     <div class="grid">
         <div class="row-span-2">
-            <h1 class="border text-left px-8 py-4">Here's a list of movies for you that Gabriela owns!</h1>
+            <i class="border text-left px-8 py-4 mt-2 mb-2">Here's a list of movies for you that Gabriela owns!</i>
             <div class="relative overflow-x-auto">
                 <table class="w-full text-md text-left">
                     <thead>
